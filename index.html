@@ -23,83 +23,107 @@ export default function TourismFormApp() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white shadow-lg rounded-2xl p-6 max-w-md w-full">
-        <div className="flex items-center mb-6">
-          <div className="w-16 h-16 bg-yellow-400 flex items-center justify-center font-bold text-xl rounded-lg">
-            LOGO
-          </div>
-          <div className="ml-4 leading-tight">
-            <h1 className="text-gray-800 font-semibold">PEMERINTAH KABUPATEN WAKATOBI</h1>
-            <p className="text-gray-600 text-sm">DINAS PARIWISATA</p>
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-gray-100 flex items-center justify-center p-4">
+      <div className="bg-white shadow-xl rounded-2xl p-8 max-w-lg w-full">
+        {/* Header Section */}
+        <div className="border-b border-gray-200 pb-6 mb-8">
+          <div className="flex items-center">
+            <div className="w-16 h-16 bg-yellow-400 flex items-center justify-center font-bold text-2xl text-white rounded-lg shadow-md">
+              🌴
+            </div>
+            <div className="ml-4">
+              <h1 className="text-2xl font-bold text-gray-800">DINAS PARIWISATA</h1>
+              <p className="text-gray-600 font-medium">PEMERINTAH KABUPATEN WAKATOBI</p>
+            </div>
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Form Title */}
+        <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+          Formulir Layanan Pariwisata
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Tanggal */}
           <div>
-            <label className="block text-gray-700">Tanggal:</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Tanggal <span className="text-red-500">*</span>
+            </label>
             <input
               type="date"
               name="tanggal"
               value={form.tanggal}
               onChange={handleChange}
-              className="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 outline-none transition duration-200"
               required
             />
           </div>
 
+          {/* Nama Objek Wisata */}
           <div>
-            <label className="block text-gray-700">Nama Objek Wisata:</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Nama Objek Wisata <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               name="namaObjek"
               value={form.namaObjek}
               onChange={handleChange}
               placeholder="Masukkan nama objek wisata"
-              className="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 outline-none placeholder-gray-400 transition duration-200"
               required
             />
           </div>
 
+          {/* Kebutuhan */}
           <div>
-            <label className="block text-gray-700">Kebutuhan:</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Kebutuhan
+            </label>
             <textarea
               name="kebutuhan"
               value={form.kebutuhan}
               onChange={handleChange}
-              placeholder="Apa kebutuhan Anda?"
-              className="mt-1 w-full border rounded-lg px-3 py-2 h-20 resize-none focus:outline-none focus:ring"
+              placeholder="Tuliskan kebutuhan Anda..."
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 outline-none placeholder-gray-400 min-h-[100px] transition duration-200"
             />
           </div>
 
+          {/* Saran */}
           <div>
-            <label className="block text-gray-700">Saran:</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Saran
+            </label>
             <textarea
               name="saran"
               value={form.saran}
               onChange={handleChange}
-              placeholder="Ada saran untuk kami?"
-              className="mt-1 w-full border rounded-lg px-3 py-2 h-20 resize-none focus:outline-none focus:ring"
+              placeholder="Berikan saran untuk pengembangan pariwisata..."
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 outline-none placeholder-gray-400 min-h-[100px] transition duration-200"
             />
           </div>
 
+          {/* Nama Petugas */}
           <div>
-            <label className="block text-gray-700">Nama Petugas:</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Nama Petugas
+            </label>
             <input
               type="text"
               name="namaPetugas"
               value={form.namaPetugas}
               onChange={handleChange}
-              placeholder="Petugas yang melayani"
-              className="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring"
+              placeholder="Nama petugas yang melayani"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 outline-none placeholder-gray-400 transition duration-200"
             />
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-yellow-400 text-white font-semibold py-2 rounded-lg hover:opacity-90 transition"
+            className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-md hover:shadow-lg"
           >
-            KIRIM
+            KIRIM FORMULIR
           </button>
         </form>
       </div>
