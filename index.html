@@ -1,0 +1,108 @@
+import React, { useState } from 'react';
+
+export default function TourismFormApp() {
+  const [form, setForm] = useState({
+    tanggal: '',
+    namaObjek: '',
+    kebutuhan: '',
+    saran: '',
+    namaPetugas: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: kirim data ke backend atau API
+    console.log('Data dikirim:', form);
+    alert('Terima kasih! Data Anda telah dikirim.');
+    setForm({ tanggal: '', namaObjek: '', kebutuhan: '', saran: '', namaPetugas: '' });
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="bg-white shadow-lg rounded-2xl p-6 max-w-md w-full">
+        <div className="flex items-center mb-6">
+          <div className="w-16 h-16 bg-yellow-400 flex items-center justify-center font-bold text-xl rounded-lg">
+            LOGO
+          </div>
+          <div className="ml-4 leading-tight">
+            <h1 className="text-gray-800 font-semibold">PEMERINTAH KABUPATEN WAKATOBI</h1>
+            <p className="text-gray-600 text-sm">DINAS PARIWISATA</p>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-gray-700">Tanggal:</label>
+            <input
+              type="date"
+              name="tanggal"
+              value={form.tanggal}
+              onChange={handleChange}
+              className="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700">Nama Objek Wisata:</label>
+            <input
+              type="text"
+              name="namaObjek"
+              value={form.namaObjek}
+              onChange={handleChange}
+              placeholder="Masukkan nama objek wisata"
+              className="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700">Kebutuhan:</label>
+            <textarea
+              name="kebutuhan"
+              value={form.kebutuhan}
+              onChange={handleChange}
+              placeholder="Apa kebutuhan Anda?"
+              className="mt-1 w-full border rounded-lg px-3 py-2 h-20 resize-none focus:outline-none focus:ring"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700">Saran:</label>
+            <textarea
+              name="saran"
+              value={form.saran}
+              onChange={handleChange}
+              placeholder="Ada saran untuk kami?"
+              className="mt-1 w-full border rounded-lg px-3 py-2 h-20 resize-none focus:outline-none focus:ring"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700">Nama Petugas:</label>
+            <input
+              type="text"
+              name="namaPetugas"
+              value={form.namaPetugas}
+              onChange={handleChange}
+              placeholder="Petugas yang melayani"
+              className="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-yellow-400 text-white font-semibold py-2 rounded-lg hover:opacity-90 transition"
+          >
+            KIRIM
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
